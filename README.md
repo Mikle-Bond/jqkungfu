@@ -2,6 +2,19 @@
 
 A [jq](https://github.com/stedolan/jq/) playground, powered by WebAssembly.
 
+## This fork
+
+It is meant to be useful for selfhosting purposes.
+
+Building it requires Buildx configured in your docker installation. 
+
+```console
+$ DOCKER_BUILDX=1 docker build -t jqkungfu .
+$ container=$(docker run --rm -p 3000:3000 -d jqkungfu)
+$ # visit http://localhost:3000/
+$ docker stop $container
+```
+
 ## Links
 
 * [jqkungfu.com](https://jqkungfu.com)
@@ -32,6 +45,8 @@ Then open [http://localhost:9999](http://localhost:9999) in your browser.
 
 
 ## Compile to WebAssembly (optional)
+
+> Note: This section refers to the original repo. These instructions won't work in this repo as expected.
 
 To compile jq to WebAssembly, run the `compile.sh` code within an environment that includes [Emscripten](https://github.com/emscripten-core/emscripten).
 
